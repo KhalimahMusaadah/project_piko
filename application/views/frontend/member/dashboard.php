@@ -1,4 +1,4 @@
-            <div class="row">
+    <div class="row">
                 <div class="col-lg-12">
                     <h1 class="page-header">Dashboard</h1>
                 </div>
@@ -50,7 +50,7 @@
                         </a>
                     </div>
                 </div>
-                <!-- <div class="col-lg-3 col-md-6">
+                <!--<div class="col-lg-3 col-md-6">
                     <div class="panel panel-yellow">
                         <div class="panel-heading">
                             <div class="row">
@@ -94,4 +94,4 @@
                         </a>
                     </div>
                 </div>
-            </div> -->
+            </div>-->
