@@ -272,6 +272,5 @@
 
   </body>
 
-  <!-- percobaan -->
 
 </html>
