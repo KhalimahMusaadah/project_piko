@@ -87,6 +87,7 @@ class Admin_system extends PX_Controller {
 
 		}
   }
+  
 
 	function komik(){
 		$this->check_login_petugas();
