@@ -28,18 +28,18 @@ class Member extends PX_Controller {
 			redirect('member');
 		}
 		else
-		$jml_barang = $this->model_basic->select_where('tbl_komik','status','tampilkan')->result();
+		$jml_komik = $this->model_basic->select_where('tbl_komik','status','tampilkan')->result();
 		$jml_pinjam = $this->model_basic->select_where('tbl_pinjam','id_peminjam',$this->session_peminjam['id_peminjam'])->result();
-		$ttl_barang = 0;
-		foreach ($jml_barang as $stock) {
-			$ttl_barang += $stock->stock;
+		$ttl_komik = 0;
+		foreach ($jml_komik as $stock) {
+			$ttl_komik += $stock->stock;
 		}
 		$ttl_pinjam = 0;
 		foreach ($jml_pinjam as $jml) {
 			$ttl_pinjam += $jml->jml;
 		}
 
-		$data['ttl_barang'] = $ttl_barang;
+		$data['ttl_komik'] = $ttl_komik;
 		$data['ttl_pinjam'] = $ttl_pinjam;
 		$data['content'] = $this->load->view('frontend/member/dashboard',$data,true);
 		$this->load->view('frontend/index',$data);

@@ -21,7 +21,7 @@
                         <tr>
                           <th>ID Pinjam</th>
                           <th>Nama Peminjam</th>
-                          <th>Nama Barang</th>
+                          <th>Nama komik</th>
                           <th>Jumlah Pinjam</th>
                           <th>Tanggal Pinjam</th>
                           <th>Tanggal Kembali</th>
@@ -33,7 +33,7 @@
                         <tr>
                           <td><?php echo $d1->id_pinjam ?></td>
                           <td><?php echo $d1->name_peminjam ?></td>
-                          <td><?php echo $d1->name_barang ?></td>
+                          <td><?php echo $d1->name_komik ?></td>
                           <td><?php echo $d1->jml ?></td>
                           <td><?php echo $d1->tgl_pinjam ?></td>
                           <td class="text-center"><?php if($d1->tgl_kembali == '0000-00-00 00:00:00')echo 'N/A'; else echo $d1->tgl_kembali; ?></td>

@@ -39,8 +39,7 @@
             <div class="col-md-4 col-md-offset-4">
                 <div class="login-panel panel panel-default">
                     <div class="panel-heading">
-					<center><h3><b>PEMINJAMAN KOMIK</H3></center></b>
-                        <h3 class="panel-title">Login Petugas</h3>
+					<center><h3><b>LOGIN ADMIN</H3></center></b>
                     </div>
                     <div class="panel-body">
                         <form action="do_login" method="post" role="form" id="login-form">

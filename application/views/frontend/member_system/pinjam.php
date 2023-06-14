@@ -29,7 +29,7 @@
                         <?php foreach ($data as $d1) { ?>
                         <tr>
                           <td><?php echo $d1->id_pinjam ?></td>
-                          <td><?php echo $d1->name ?></td>
+                          <td><?php echo $d1->id_komik ?></td>
                           <td><?php echo $d1->jml ?></td>
                           <td><?php echo $d1->tgl_pinjam ?></td>
                           <td class="text-center">

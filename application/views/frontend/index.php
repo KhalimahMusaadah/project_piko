@@ -44,9 +44,10 @@
 <body>
 
     <div id="wrapper">
+    
 
         <!-- Navigation -->
-        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+        <nav class="navbar navbar-light navbar-static-top" style="background-color: #2196f3;" role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="sr-only">Toggle navigation</span>
@@ -80,20 +81,20 @@
             <!-- /.navbar-top-links -->
 
             <div class="navbar-default sidebar" role="navigation">
-                <div class="sidebar-nav navbar-collapse">
+                <div class="sidebar-nav navbar-collapse" >
                     <ul class="nav" id="side-menu">
 
-                        <li>
+                        <!--li>
                           <a href="<?php echo base_url() ?>"><i class="fa fa-home fa-fw"></i> Home</a>
+                        </li-->
+                        <li>
+                          <a href="<?php echo base_url('member/dashboard') ?>"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                         <li>
                           <a href="<?php echo base_url('member_system/profile') ?>"><i class="fa fa-user fa-fw"></i> User Profile</a>
                         </li>
                         <li>
-                          <a href="<?php echo base_url('member/dashboard') ?>"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
-                        </li>
-                        <li>
-                          <a href="<?php echo base_url('member_system/barang') ?>"><i class="fa fa-archive fa-fw"></i> Data Komik</a>
+                          <a href="<?php echo base_url('member_system/komik') ?>"><i class="fa fa-archive fa-fw"></i> Data Komik</a>
                         </li>
                         <li>
                           <a href="<?php echo base_url('member_system/pinjam') ?>"><i class="fa fa-book fa-fw"></i> Peminjaman</a>
@@ -157,7 +158,7 @@
 
     <!-- WARNING VALIDATE SCRIPT  -->
     <script type="text/javascript">
-      var jvalidate = $("#barang_pinjam").validate({
+      var jvalidate = $("#komik_pinjam").validate({
         ignore: [],
         rules: {
           jml: {
@@ -166,22 +167,22 @@
         },
         submitHandler: function(form) {
           var target = $(form).attr('action');
-          $('#barang_pinjam .alert-warning').removeClass('hidden');
-          $('#barang_pinjam .alert-success').addClass('hidden');
-          $('#barang_pinjam .alert-danger').addClass('hidden');
+          $('#komik_pinjam .alert-warning').removeClass('hidden');
+          $('#komik_pinjam .alert-success').addClass('hidden');
+          $('#komik_pinjam .alert-danger').addClass('hidden');
           $.ajax({
             url : target,
             type : 'POST',
             dataType : 'json',
             data : $(form).serialize(),
             success : function(response){
-              $('#barang_pinjam .alert-warning').addClass('hidden');
+              $('#komik_pinjam .alert-warning').addClass('hidden');
               if(response.status == 'ok'){
-                $('#barang_pinjam .alert-success').removeClass('hidden').children('span').text(response.msg);
+                $('#komik_pinjam .alert-success').removeClass('hidden').children('span').text(response.msg);
                 window.location.href = response.redirect;
               }
               else
-                $('#barang_pinjam .alert-danger').removeClass('hidden').children('span').text(response.msg);
+                $('#komik_pinjam .alert-danger').removeClass('hidden').children('span').text(response.msg);
             },
             error : function(jqXHR, textStatus, errorThrown) {
               alert(textStatus, errorThrown);

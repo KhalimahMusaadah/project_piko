@@ -33,7 +33,7 @@
                         <tr>
                           <td><?php echo $d1->id_pinjam ?></td>
                           <td><?php echo $d1->name_peminjam ?></td>
-                          <td><?php echo $d1->name_barang ?></td>
+                          <td><?php echo $d1->name_komik ?></td>
                           <td><?php echo $d1->jml ?></td>
                           <td><?php echo $d1->tgl_pinjam ?></td>
                           <td class="text-center">

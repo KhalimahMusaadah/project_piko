@@ -14,12 +14,12 @@
                                     <i class="fa fa-archive fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge"><?php echo $ttl_barang ?></div>
+                                    <div class="huge"><?php echo $ttl_komik?></div>
                                     <div>Daftar Komik</div>
                                 </div>
                             </div>
                         </div>
-                        <a href="<?php echo base_url('member_system/barang') ?>">
+                        <a href="<?php echo base_url('member_system/komik') ?>">
                             <div class="panel-footer">
                                 <span class="pull-left">View Details</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>

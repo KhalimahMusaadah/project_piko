@@ -10,7 +10,7 @@
 				<div class="panel-heading">
 					<h3 class="panel-title">Form Pinjam Komik</h3>
 				</div>
-				<form class="form-horizontal" method="POST" id="barang_pinjam" action="<?php echo base_url('member_system/barang_pinjam_act'); ?>">
+				<form class="form-horizontal" method="POST" id="komik_pinjam" action="<?php echo base_url('member_system/komik_pinjam_act'); ?>">
 					<input type="hidden" name="id_peminjam" value="<?php echo $userdata['id_peminjam'] ?>">
 					<input type="hidden" name="id_komik" value="<?php echo $data->id_komik; ?>">
 					<input type="hidden" name="tgl_kembali" value="0">
@@ -60,7 +60,7 @@
 
 				</div>
 				<div class="panel-footer text-right">
-					<a href="<?php echo base_url('member_system/barang'); ?>" class="pull-left btn btn-info"><i class="fa fa-arrow-left"></i> Kembali</a>
+					<a href="<?php echo base_url('member_system/komik'); ?>" class="pull-left btn btn-info"><i class="fa fa-arrow-left"></i> Kembali</a>
 					<button class="btn btn-default" type="reset">Reset</button>
 					<button class="btn btn-primary" type="submit">Simpan</button>
 				</div>

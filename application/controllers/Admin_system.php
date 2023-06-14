@@ -88,15 +88,15 @@ class Admin_system extends PX_Controller {
 		}
   }
 
-	function barang(){
+	function komik(){
 		$this->check_login_petugas();
 		$data['userdata'] = $this->session_petugas;
 		$data['data'] = $this->model_basic->select_all('tbl_komik');
-		$data['content'] = $this->load->view('backend/admin_system/barang',$data,true);
+		$data['content'] = $this->load->view('backend/admin_system/komik',$data,true);
 		$this->load->view('backend/index',$data);
 	}
 
-	function barang_form(){
+	function komik_form(){
 		$this->check_login_petugas();
 		$data['userdata'] = $this->session_petugas;
 		$id = $this->input->post('id');
@@ -105,11 +105,11 @@ class Admin_system extends PX_Controller {
 		}else{
 		$data['data'] = null;
 		}
-		$data['content'] = $this->load->view('backend/admin_system/barang_form',$data,true);
+		$data['content'] = $this->load->view('backend/admin_system/komik_form',$data,true);
 		$this->load->view('backend/index',$data);
   }
 
-	function barang_add(){
+	function komik_add(){
 		$this->check_login_petugas();
 		$data['userdata'] = $this->session_petugas;
 		$table_field = $this->db->list_fields('tbl_komik');
@@ -119,18 +119,18 @@ class Admin_system extends PX_Controller {
 		}
 		$check_name = $this->model_basic->select_where('tbl_komik','name',$insert['name'])->row();
 		if ($check_name != null) {
-			$this->returnJson(array('status' => 'error','msg' => 'Barang sudah ada!'));
+			$this->returnJson(array('status' => 'error','msg' => 'komik sudah ada!'));
 		}else{
 			if($insert){
 				$do_insert = $this->model_basic->insert_all('tbl_komik',$insert);
-				$this->returnJson(array('status' => 'ok','msg' => 'Insert data berhasil', 'redirect' => 'barang'));
+				$this->returnJson(array('status' => 'ok','msg' => 'Insert data berhasil', 'redirect' => 'komik'));
 			}else{
 				$this->returnJson(array('status' => 'error','msg' => 'Periksa kembali form'));
 			}
 		}
   }
 
-	function barang_update(){
+	function komik_update(){
 		$this->check_login_petugas();
 		$data['userdata'] = $this->session_petugas;
 		$table_field = $this->db->list_fields('tbl_komik');
@@ -140,24 +140,24 @@ class Admin_system extends PX_Controller {
 		}
 		$check_name = $this->model_basic->select_where('tbl_komik','name',$update['name'])->row();
 		if ($check_name != null && $check_name->id_komik != $update['id_komik']) {
-			$this->returnJson(array('status' => 'error','msg' => 'Nama barang sudah digunakan!'));
+			$this->returnJson(array('status' => 'error','msg' => 'Nama komik sudah digunakan!'));
 		}else{
 			if($update){
 				$do_update = $this->model_basic->update('tbl_komik',$update,'id_komik',$update['id_komik']);
-				$this->returnJson(array('status' => 'ok','msg' => 'Update data berhasil', 'redirect' => 'barang'));
+				$this->returnJson(array('status' => 'ok','msg' => 'Update data berhasil', 'redirect' => 'komik'));
 			}else{
 				$this->returnJson(array('status' => 'error','msg' => 'Periksa kembali form'));
 			}
 		}
   }
 
-	function barang_delete(){
+	function komik_delete(){
     $this->check_login_petugas();
 		$data['userdata'] = $this->session_petugas;
 		$id = $this->input->post('id');
 		$do_delete = $this->model_basic->delete('tbl_komik','id_komik',$id);
 		if($do_delete){
-			redirect('admin_system/barang');
+			redirect('admin_system/komik');
 		}
 		else{
 
@@ -167,7 +167,7 @@ class Admin_system extends PX_Controller {
 	function pinjam(){
 		$this->check_login_petugas();
 		$data['userdata'] = $this->session_petugas;
-		$data['data'] = $this->model_basic->select_where_join_2('tbl_pinjam','tbl_pinjam.*,tbl_komik.name as name_barang,tbl_peminjam.name as name_peminjam','tbl_pinjam.status','0','tbl_komik','tbl_pinjam.id_komik','tbl_komik.id_komik','tbl_peminjam','tbl_pinjam.id_peminjam','tbl_peminjam.id_peminjam')->result();
+		$data['data'] = $this->model_basic->select_where_join_2('tbl_pinjam','tbl_pinjam.*,tbl_komik.name as name_komik,tbl_peminjam.name as name_peminjam','tbl_pinjam.status','0','tbl_komik','tbl_pinjam.id_komik','tbl_komik.id_komik','tbl_peminjam','tbl_pinjam.id_peminjam','tbl_peminjam.id_peminjam')->result();
 		$data['content'] = $this->load->view('backend/admin_system/pinjam',$data,true);
 		$this->load->view('backend/index',$data);
 	}
@@ -210,7 +210,7 @@ class Admin_system extends PX_Controller {
 	function kembali(){
 		$this->check_login_petugas();
 		$data['userdata'] = $this->session_petugas;
-		$data['data'] = $this->model_basic->select_where_join_2('tbl_pinjam','tbl_pinjam.*,tbl_komik.name as name_barang,tbl_peminjam.name as name_peminjam','tbl_pinjam.status','2','tbl_komik','tbl_pinjam.id_komik','tbl_komik.id_komik','tbl_peminjam','tbl_pinjam.id_peminjam','tbl_peminjam.id_peminjam')->result();
+		$data['data'] = $this->model_basic->select_where_join_2('tbl_pinjam','tbl_pinjam.*,tbl_komik.name as name_komik,tbl_peminjam.name as name_peminjam','tbl_pinjam.status','2','tbl_komik','tbl_pinjam.id_komik','tbl_komik.id_komik','tbl_peminjam','tbl_pinjam.id_peminjam','tbl_peminjam.id_peminjam')->result();
 		$data['content'] = $this->load->view('backend/admin_system/kembali',$data,true);
 		$this->load->view('backend/index',$data);
 	}
@@ -239,7 +239,7 @@ class Admin_system extends PX_Controller {
 	function riwayat(){
 		$this->check_login_petugas();
 		$data['userdata'] = $this->session_petugas;
-		$data['data'] = $this->model_basic->select_all_join_2('tbl_riwayat','tbl_riwayat.*,tbl_komik.name as name_barang,tbl_peminjam.name as name_peminjam','tbl_komik','tbl_riwayat.id_komik','tbl_komik.id_komik','tbl_peminjam','tbl_riwayat.id_peminjam','tbl_peminjam.id_peminjam');
+		$data['data'] = $this->model_basic->select_all_join_2('tbl_riwayat','tbl_riwayat.*,tbl_komik.name as name_komik,tbl_peminjam.name as name_peminjam','tbl_komik','tbl_riwayat.id_komik','tbl_komik.id_komik','tbl_peminjam','tbl_riwayat.id_peminjam','tbl_peminjam.id_peminjam');
 		$data['content'] = $this->load->view('backend/admin_system/riwayat',$data,true);
 		$this->load->view('backend/index',$data);
 	}
@@ -254,7 +254,7 @@ class Admin_system extends PX_Controller {
 	function laporan_pinjam(){
 		$this->check_login_petugas();
 		$data['userdata'] = $this->session_petugas;
-		$data['data'] = $this->model_basic->select_where_join_2('tbl_pinjam','tbl_pinjam.*,tbl_komik.name as name_barang,tbl_peminjam.name as name_peminjam','tbl_pinjam.status','1','tbl_komik','tbl_pinjam.id_komik','tbl_komik.id_komik','tbl_peminjam','tbl_pinjam.id_peminjam','tbl_peminjam.id_peminjam')->result();
+		$data['data'] = $this->model_basic->select_where_join_2('tbl_pinjam','tbl_pinjam.*,tbl_komik.name as name_komik,tbl_peminjam.name as name_peminjam','tbl_pinjam.status','1','tbl_komik','tbl_pinjam.id_komik','tbl_komik.id_komik','tbl_peminjam','tbl_pinjam.id_peminjam','tbl_peminjam.id_peminjam')->result();
 		$data['content'] = $this->load->view('backend/admin_system/laporan_pinjam',$data,true);
 		$this->load->view('backend/index',$data);
 	}
@@ -262,7 +262,7 @@ class Admin_system extends PX_Controller {
 	// function form_laporan_bulanan(){
 	// 	$this->check_login_petugas();
 	// 	$data['userdata'] = $this->session_petugas;
-	// 	$data['data'] = $this->model_basic->select_all_join_2('tbl_riwayat','tbl_riwayat.*,tbl_barang.name as name_barang,tbl_peminjam.name as name_peminjam','tbl_barang','tbl_riwayat.id_barang','tbl_barang.id_barang','tbl_peminjam','tbl_riwayat.id_peminjam','tbl_peminjam.id_peminjam');
+	// 	$data['data'] = $this->model_basic->select_all_join_2('tbl_riwayat','tbl_riwayat.*,tbl_komik.name as name_komik,tbl_peminjam.name as name_peminjam','tbl_komik','tbl_riwayat.id_komik','tbl_komik.id_komik','tbl_peminjam','tbl_riwayat.id_peminjam','tbl_peminjam.id_peminjam');
 	// 	$data['content'] = $this->load->view('backend/admin_system/form_laporan_bulanan',$data,true);
 	// 	$this->load->view('backend/index',$data);
 	// }
@@ -273,7 +273,7 @@ class Admin_system extends PX_Controller {
 	// 	$bulan = $this->input->post('bulan');
 	// 	$tahun = $this->input->post('tahun');
 	//
-	// 	$data['data'] = $this->model_basic->select_all_join_2('tbl_riwayat','tbl_riwayat.*,tbl_barang.name as name_barang,tbl_peminjam.name as name_peminjam','tbl_barang','tbl_riwayat.id_barang','tbl_barang.id_barang','tbl_peminjam','tbl_riwayat.id_peminjam','tbl_peminjam.id_peminjam');
+	// 	$data['data'] = $this->model_basic->select_all_join_2('tbl_riwayat','tbl_riwayat.*,tbl_komik.name as name_komik,tbl_peminjam.name as name_peminjam','tbl_komik','tbl_riwayat.id_komik','tbl_komik.id_komik','tbl_peminjam','tbl_riwayat.id_peminjam','tbl_peminjam.id_peminjam');
 	// 	$data['content'] = $this->load->view('backend/admin_system/laporan_bulanan',$data,true);
 	// 	$this->load->view('backend/index',$data);
 	// }

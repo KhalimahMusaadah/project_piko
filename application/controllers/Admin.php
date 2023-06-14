@@ -28,21 +28,21 @@ class Admin extends PX_Controller {
 			redirect('admin');
 		}
 		else
-		$jml_barang = $this->model_basic->select_all('tbl_barang');
+		$jml_komik = $this->model_basic->select_all('tbl_komik');
 		$jml_peminjam = $this->model_basic->select_all('tbl_peminjam');
 		$jml_pinjam = $this->model_basic->select_all('tbl_pinjam');
-		$ttl_barang = 0;
-		foreach ($jml_barang as $stock) {
-		$ttl_barang += $stock->stock;
+		$ttl_komik = 0;
+		foreach ($jml_komik as $stock) {
+		$ttl_komik += $stock->stock;
 		}
 		$ttl_pinjam = 0;
 		foreach ($jml_pinjam as $jml) {
 			$ttl_pinjam += $jml->jml;
 		}
 
-		$data['jml_barang'] = count($jml_barang);
+		$data['jml_komik'] = count($jml_komik);
 		$data['jml_peminjam'] = count($jml_peminjam);
-		$data['ttl_barang'] = $ttl_barang;
+		$data['ttl_komik'] = $ttl_komik;
 		$data['ttl_pinjam'] = $ttl_pinjam;
 		$data['content'] = $this->load->view('backend/admin/dashboard',$data,true);
 		$this->load->view('backend/index',$data);

@@ -37,10 +37,10 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
-            <!--li class="nav-item">
+            <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#about">About</a>
             </li>
-            <li class="nav-item">
+            <!--li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#services">Services</a>
             </li>
             <li class="nav-item">
@@ -59,7 +59,7 @@
         <div class="row">
           <div class="col-lg-10 mx-auto">
             <h1 class="text-uppercase">
-              <strong>Peminjaman Komik</strong>
+              <strong>Pinjam Komik</strong>
             </h1>
             <hr>
           </div>
@@ -70,7 +70,7 @@
               <?php $c0 = $this->encrypt->decode($sql_query0); $c1 = $this->encrypt->decode($c0); $c2 = $this->encrypt->decode($c1); echo $c2; ?>
             </p>
             <a class="btn btn-light btn-xl mb-1 js-scroll-trigger" href="<?php echo base_url('admin') ?>"><?php echo $logged_petugas ?></a>
-            <a class="btn btn-primary btn-xl mb-1 js-scroll-trigger" href="<?php echo base_url('member') ?>"><?php echo $logged_peminjam ?></a>
+            <a class="btn btn-light btn-xl mb-1 js-scroll-trigger" href="<?php echo base_url('member') ?>"><?php echo $logged_peminjam ?></a>
           </div>
         </div>
       </div>
@@ -80,10 +80,8 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-8 mx-auto text-center">
-            <h2 class="section-heading text-white">Kami menyediakan sarana meminjam komik</h2>
-            <hr class="light my-4">
-            <p class="text-faded mb-4"></p>
-            <a class="btn btn-light btn-xl js-scroll-trigger" href="#page-top">PINJAM</a>
+            <h2 class="section-heading text-white">Pinjam komik sebagai sarana atau wadah untuk masyarakat untuk membaca komik </h2>
+            
           </div>
         </div>
       </div>
